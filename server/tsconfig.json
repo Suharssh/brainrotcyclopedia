@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // File layout
+    "rootDir": "./src",          // your TypeScript source lives here
+    "outDir": "./dist",          // compiled JavaScript goes here (ignored by Git)
+
+    // Environment: Node, modern JavaScript
+    "module": "nodenext",        // follow Node's rules for import/export
+    "target": "esnext",          // output modern JS (your Node version supports it)
+    "lib": ["esnext"],           // built-in JS types; no "dom", since there's no browser here
+    "types": ["node"],           // load Node's globals (process, Buffer...)
+
+    // Debugging
+    "sourceMap": true,           // stack traces point to your .ts lines, not the compiled .js
+
+    // Type checking
+    "strict": true,
+    "noUncheckedIndexedAccess": true,   // array[i] might be undefined, so handle it
+    "noImplicitReturns": true,          // every code path in a function must return
+    "noFallthroughCasesInSwitch": true, // no accidental fall-through in switch cases
+
+    // Module correctness
+    "verbatimModuleSyntax": true,  // type-only imports must say `import type`
+    "isolatedModules": true,       // every file must compile on its own (what tsx expects)
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true           // don't type-check node_modules (faster)
+  },
+  "include": ["src"]
+}
